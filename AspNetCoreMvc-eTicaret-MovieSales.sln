@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreMvc-eTicaret-MovieSales", "AspNetCoreMvc-eTicaret-MovieSales\AspNetCoreMvc-eTicaret-MovieSales.csproj", "{F5A0EA19-E3F4-4FDF-A23D-2003ED68CBB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5A0EA19-E3F4-4FDF-A23D-2003ED68CBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A0EA19-E3F4-4FDF-A23D-2003ED68CBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A0EA19-E3F4-4FDF-A23D-2003ED68CBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A0EA19-E3F4-4FDF-A23D-2003ED68CBB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33B4E8E5-78E3-462F-B6BE-CE08684C0529}
+	EndGlobalSection
+EndGlobal

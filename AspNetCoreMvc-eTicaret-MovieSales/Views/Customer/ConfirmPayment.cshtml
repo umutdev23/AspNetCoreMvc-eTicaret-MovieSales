@@ -1,0 +1,111 @@
+﻿@model CustomerFaturaViewModel
+@{
+    ViewData["Title"] = "ConfirmPayment";
+    Layout = "~/Views/Shared/_LayoutMovie.cshtml";
+}
+
+<h3>Ödeme Onay Sayfası</h3>
+
+<div class="container">
+    <form asp-action="ConfirmPayment" asp-controller="Customer" method="post">
+        <input type="hidden" asp-for="@Model.customerViewModel.Id" />
+        <input type="hidden" asp-for="@Model.satisViewModel.CustomerId" />
+        <input type="hidden" asp-for="@Model.satisViewModel.Date" />
+        <input type="hidden" asp-for="@Model.satisViewModel.TotalQuantity" />
+        <input type="hidden" asp-for="@Model.satisViewModel.TotalPrice" />
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Müşteri Bilgileri</h3>
+        </div>
+        <div class="col-md-6">
+            <h3>Sepet Bilgileri</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                    <label asp-for="@Model.customerViewModel.Name" class="control-label"></label>
+                    <input asp-for="@Model.customerViewModel.Name" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.customerViewModel.Email" class="control-label"></label>
+                <input asp-for="@Model.customerViewModel.Email" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.customerViewModel.Phone" class="control-label"></label>
+                <input asp-for="@Model.customerViewModel.Phone" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.customerViewModel.Address" class="control-label"></label>
+                <input asp-for="@Model.customerViewModel.Address" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="col-md-6">
+                <table class="table table-striped table-secondary mt-4">
+                    <thead>
+                        <tr>
+                            <th>Film Adı</th>
+                            <th>Birim Fiyat</th>
+                            <th>Adet</th>
+                            <th>Tutar</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var siparis in Model.sepetDetayListesi)
+                        {
+                            <tr>
+                                <td>@siparis.MovieName</td>
+                                <td>@siparis.MoviePrice</td>
+                                <td>@siparis.MovieQuantity</td>
+                                <td>@(siparis.MovieQuantity * siparis.MoviePrice)
+                                </td>  
+                                <td></td>
+                            </tr>
+                        }
+                        <tr class="fw-bold">
+                            <td>Toplam</td>
+                            <td></td>
+                            <td>
+                                @Model.satisViewModel.TotalQuantity
+                            </td>
+                            <td>
+                                @Model.satisViewModel.TotalPrice
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <h4>Ödeme Bilgileri</h4>
+        <div class="col-6">
+            <label for="kkarti" class="control-label"><h5>Kredi Kartı Bilgileri</h5></label><br />
+            <label for="cname" class="control-label"><b>Kartın Üstündeki İsim</b></label>
+            <input asp-for="@Model.customerViewModel.Name" class="form-control" />
+            <label for="ccnumber" class="control-label"><b>Kredi Kartı Numarası</b></label>
+            <input id="ccnumber" name="ccnumber" class="form-control" type="text" placeholder="1111-2222-3333-4444" />
+            <div class="row">
+                <div class="col">
+                    <label for="expmonth" class="control-label">Ay</label>
+                    <input id="expmonth" name="expmonth" class="form-control" type="text" />
+                </div>
+                <div class="col">
+                    <label for="expyear" class="control-label">Yıl</label>
+                    <input id="expyear" name="expyear" class="form-control" type="text" placeholder="2025" />
+                </div>
+                <div class="col">
+                    <label for="cvv" class="control-label">CVV</label>
+                    <input id="cvv" name="cvv" class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Satın Al" class="btn btn-primary" />
+            </div>
+            </div>
+    </div>
+    </form>
+</div>
+

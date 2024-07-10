@@ -1,0 +1,11 @@
+﻿@model List<GenreViewModel>
+<h2>Film Türleri</h2>
+<a href="/Movie/Index" class="list-group-item rounded @(ViewBag.SelectedGenreId==null?"active":"") aria-current="true">
+    Tüm Filmler
+</a>
+@foreach (var g in Model)
+{
+    <a href="/Movie/Index/@g.Id" class="list-group-item @(ViewBag.SelectedGenreId==g.Id.ToString()?"active":"")" aria-current="true">
+        @g.Name
+    </a>
+}
